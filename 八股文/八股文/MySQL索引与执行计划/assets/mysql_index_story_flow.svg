@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="360" viewBox="0 0 1040 360">
+  <rect width="1040" height="360" fill="#f8fafc"/>
+  <text x="40" y="44" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">一条列表 SQL 的索引访问路径</text>
+  <g font-family="Arial, sans-serif" font-size="16" fill="#0f172a">
+    <rect x="40" y="86" width="150" height="74" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="64" y="116" font-weight="700">where 条件</text>
+    <text x="64" y="142">tenant_id/status</text>
+    <path d="M200 123 H270" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="280" y="86" width="170" height="74" rx="10" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="306" y="116" font-weight="700">最左前缀</text>
+    <text x="306" y="142">连续缩小区间</text>
+    <path d="M460 123 H530" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="540" y="86" width="170" height="74" rx="10" fill="#fef3c7" stroke="#d97706"/>
+    <text x="566" y="116" font-weight="700">索引顺序</text>
+    <text x="566" y="142">承接 order by</text>
+    <path d="M720 123 H790" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="800" y="86" width="190" height="74" rx="10" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="824" y="116" font-weight="700">返回列</text>
+    <text x="824" y="142">覆盖则少回表</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#334155">
+    <rect x="142" y="225" width="756" height="52" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="176" y="257">limit 20 offset 100000：扫描前 100020 条候选记录，跳过前 100000 条，返回 20 条</text>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>

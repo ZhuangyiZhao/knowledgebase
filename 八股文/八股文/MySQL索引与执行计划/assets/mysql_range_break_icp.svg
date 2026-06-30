@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="360" viewBox="0 0 1040 360">
+  <rect width="1040" height="360" fill="#f8fafc"/>
+  <text x="40" y="44" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">范围条件后：边界变宽，但仍可能索引内过滤</text>
+  <g font-family="Arial, sans-serif" font-size="16" fill="#0f172a">
+    <rect x="70" y="100" width="250" height="84" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="98" y="132" font-weight="700">a = 10</text>
+    <text x="98" y="160">先定位到 a 的范围</text>
+    <path d="M330 142 H420" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="430" y="100" width="250" height="84" rx="10" fill="#fef3c7" stroke="#d97706"/>
+    <text x="458" y="132" font-weight="700">b &gt; 100</text>
+    <text x="458" y="160">范围后扫描边界变宽</text>
+    <path d="M690 142 H780" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="790" y="100" width="180" height="84" rx="10" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="818" y="132" font-weight="700">c = 3</text>
+    <text x="818" y="160">可能索引内过滤</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#334155">
+    <rect x="105" y="235" width="830" height="54" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="132" y="268">结论：b 是范围列后，c 通常难以继续缩小定位边界，但 c 在索引里时可减少无效回表。</text>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>

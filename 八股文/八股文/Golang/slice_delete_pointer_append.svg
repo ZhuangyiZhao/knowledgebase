@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="800" viewBox="0 0 1180 800">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      text { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; fill: #0f172a; }
+      .title { font-size: 28px; font-weight: 700; }
+      .subtitle { font-size: 17px; fill: #475569; }
+      .label { font-size: 18px; font-weight: 700; }
+      .small { font-size: 15px; fill: #475569; }
+      .code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 16px; }
+      .cell { fill: #f8fafc; stroke: #64748b; stroke-width: 2; rx: 7; }
+      .cell-hot { fill: #fff7ed; stroke: #f97316; stroke-width: 2.5; rx: 7; }
+      .cell-ghost { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 7 5; rx: 7; }
+      .var { fill: #ecfeff; stroke: #0891b2; stroke-width: 2; rx: 8; }
+      .slice { fill: #eef2ff; stroke: #4f46e5; stroke-width: 2; rx: 8; }
+      .note { fill: #fffbeb; stroke: #f59e0b; stroke-width: 1.8; rx: 10; }
+      .line { stroke: #334155; stroke-width: 2.3; fill: none; marker-end: url(#arrow); }
+      .muted-line { stroke: #94a3b8; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .overwrite { stroke: #f97316; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1180" height="800" fill="#ffffff"/>
+
+  <text x="44" y="52" class="title">s = append(s[:1], s[2:]...) 删除中间元素</text>
+  <text x="44" y="82" class="subtitle">s 是 []*int：slice 里装的是地址，append 会复用并改写同一个底层数组</text>
+
+  <!-- Step 1 -->
+  <text x="44" y="130" class="label">1. append(&amp;a, &amp;b, &amp;c) 之后</text>
+
+  <rect x="62" y="160" width="190" height="96" class="slice"/>
+  <text x="84" y="192" class="code">s</text>
+  <text x="84" y="220" class="code">len=3</text>
+  <text x="84" y="244" class="code">cap=3</text>
+  <path d="M 252 208 C 290 208, 302 208, 337 208" class="line"/>
+
+  <text x="340" y="150" class="small">底层数组</text>
+  <rect x="340" y="165" width="120" height="78" class="cell"/>
+  <rect x="460" y="165" width="120" height="78" class="cell"/>
+  <rect x="580" y="165" width="120" height="78" class="cell"/>
+  <text x="385" y="192" class="small">0</text>
+  <text x="505" y="192" class="small">1</text>
+  <text x="625" y="192" class="small">2</text>
+  <text x="376" y="224" class="code">&amp;a</text>
+  <text x="496" y="224" class="code">&amp;b</text>
+  <text x="616" y="224" class="code">&amp;c</text>
+
+  <rect x="850" y="130" width="86" height="54" class="var"/>
+  <rect x="850" y="215" width="86" height="54" class="var"/>
+  <rect x="850" y="300" width="86" height="54" class="var"/>
+  <text x="878" y="164" class="code">a=1</text>
+  <text x="878" y="249" class="code">b=2</text>
+  <text x="878" y="334" class="code">c=3</text>
+  <path d="M 400 243 C 505 285, 680 130, 848 156" class="line"/>
+  <path d="M 520 243 C 620 300, 720 220, 848 241" class="line"/>
+  <path d="M 640 243 C 720 290, 770 315, 848 326" class="line"/>
+
+  <!-- Step 2 -->
+  <text x="44" y="404" class="label">2. 执行 s = append(s[:1], s[2:]...)</text>
+  <text x="44" y="432" class="subtitle">s[:1] 的可见部分是 [&amp;a]，但容量还够；所以 append 把 &amp;c 写到下标 1</text>
+
+  <rect x="62" y="475" width="190" height="96" class="slice"/>
+  <text x="84" y="507" class="code">s</text>
+  <text x="84" y="535" class="code">len=2</text>
+  <text x="84" y="559" class="code">cap=3</text>
+  <path d="M 252 523 C 290 523, 302 523, 337 523" class="line"/>
+
+  <text x="340" y="465" class="small">同一个底层数组</text>
+  <rect x="340" y="480" width="120" height="78" class="cell"/>
+  <rect x="460" y="480" width="120" height="78" class="cell-hot"/>
+  <rect x="580" y="480" width="120" height="78" class="cell-ghost"/>
+  <text x="385" y="507" class="small">0</text>
+  <text x="505" y="507" class="small">1</text>
+  <text x="625" y="507" class="small">2</text>
+  <text x="376" y="539" class="code">&amp;a</text>
+  <text x="496" y="539" class="code">&amp;c</text>
+  <text x="616" y="539" class="code">&amp;c</text>
+
+  <path d="M 640 480 C 640 430, 520 426, 520 478" class="overwrite"/>
+  <text x="464" y="408" class="code" fill="#ea580c">把下标 2 的 &amp;c 复制到下标 1</text>
+  <text x="604" y="584" class="small">下标 2 还残留 &amp;c，</text>
+  <text x="604" y="606" class="small">但 len=2，看不到它</text>
+
+  <path d="M 400 558 C 500 640, 680 455, 848 471" class="line"/>
+  <path d="M 520 558 C 650 620, 735 535, 848 556" class="line"/>
+  <path d="M 640 558 C 720 595, 790 560, 848 556" class="muted-line"/>
+
+  <rect x="850" y="445" width="86" height="54" class="var"/>
+  <rect x="850" y="530" width="86" height="54" class="var"/>
+  <text x="878" y="479" class="code">a=1</text>
+  <text x="878" y="564" class="code">c=3</text>
+
+  <rect x="760" y="626" width="344" height="58" class="note"/>
+  <text x="784" y="652" class="code">fmt.Println(*s[0], *s[1], len(s), cap(s))</text>
+  <text x="784" y="674" class="code">=> 1 3 2 3</text>
+
+  <rect x="62" y="640" width="604" height="100" class="note"/>
+  <text x="86" y="668" class="label">为什么新的 s 长度是 2？</text>
+  <text x="86" y="696" class="code">len(append(s[:1], s[2:]...)) = len(s[:1]) + len(s[2:])</text>
+  <text x="86" y="722" class="code">                              = 1 + 1 = 2</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="390" viewBox="0 0 920 390">
+  <rect width="920" height="390" fill="#f8fafc"/>
+  <text x="36" y="46" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">索引设计检查清单</text>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#1f2937">
+    <rect x="85" y="95" width="300" height="210" rx="8" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="120" y="135">1. where 是否走最左前缀</text>
+    <text x="120" y="175">2. order by 是否复用顺序</text>
+    <text x="120" y="215">3. select 是否覆盖索引</text>
+    <text x="120" y="255">4. 是否引入过多写放大</text>
+    <rect x="535" y="95" width="300" height="210" rx="8" fill="#f0fdf4" stroke="#16a34a"/>
+    <text x="570" y="145">更少扫描</text>
+    <text x="570" y="190">更少回表</text>
+    <text x="570" y="235">更少排序</text>
+    <text x="570" y="280">更稳定延迟</text>
+  </g>
+</svg>

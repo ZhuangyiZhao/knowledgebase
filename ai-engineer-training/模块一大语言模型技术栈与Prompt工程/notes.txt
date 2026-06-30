@@ -1,0 +1,51 @@
+问题
+Generative AI的6层架构是什么？
+基础设施层：GPU、云计算等算力资源。
+架构层：Transformer、MoE 等模型架构，是大模型的技术基础。
+基础模型层：GPT、Claude、Llama、Qwen 等预训练大模型。
+LLM 层：针对不同场景优化后的具体模型。
+API 层：通过 API 向开发者提供模型能力。
+应用层：ChatGPT、Copilot、Notion AI 等面向用户的 AI 产品。
+
+
+问题
+Agenentic AI 的8层架构是什么?
+* 基础设施层：GPU、云服务器、数据库等，提供运行环境。
+* Agent网络层：多个 Agent 协同工作与通信。
+* 协议层：统一 Agent 与工具间的通信标准（如 MCP）。
+* 工具层：连接搜索、数据库、Python、API 等外部能力。
+* 认知层：负责规划、推理、决策和任务拆解，是 Agent 的“大脑”。
+* 记忆层：保存对话历史、长期记忆和用户偏好，实现个性化。
+* 应用层：将上述能力组合成 AI 助手、编程、客服等具体产品。
+* 运维治理层：负责部署、监控、安全、权限和成本管理。
+核心记忆：Agent = 大模型（认知）+ 工具 + 记忆 + 多 Agent 协作。学习 LangChain/LangGraph 重点关注第 4～6 层。
+
+
+问题
+Generative AI 和Agentic AI的区别和联系是什么？
+| Generative AI                  | Agentic AI                                |
+| -------------------------------| ------------------------------------------|
+| 如何训练和提供一个大模型           | 如何利用大模型构建智能体                      |
+| 关注模型（Model）                | 关注智能体（Agent）                         |
+| 核心：Transformer、LLM、API      | 核心：Reasoning、Tool、Memory、Multi-Agent  |
+
+
+问题
+.env 与系统环境变量存在同名 v3_api 且值不同，程序会读取哪个？
+
+答案
+默认系统环境变量优先级更高，.env 不会覆盖它；加载 env 库开启 override 强制覆盖参数后，才会取.env 内的值。
+
+
+问题
+Function Calling和普通的程序调用接口有什么区别？
+普通函数调用由程序员写死：调用哪个函数、何时调用、参数是什么都提前确定。
+Function Calling则由大模型理解用户自然语言，自主选择合适的函数并生成参数，程序再实际执行函数并将结果返回给模型生成最终回答。
+
+
+问题
+LangChain和LangGraph的区别？
+LangChain 是“工具库”，LangGraph 是“流程引擎”。
+LangChain：负责让大模型调用工具、组织 Prompt、串联流程，适合线性工作流。
+LangGraph：负责管理 Agent 的状态和执行流程，适合复杂、多轮、可循环、可恢复的工作流。
+

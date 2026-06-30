@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="380" viewBox="0 0 920 380">
+  <rect width="920" height="380" fill="#f8fafc"/>
+  <text x="36" y="46" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">慢 SQL 分析闭环</text>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#1f2937">
+    <rect x="70" y="110" width="150" height="70" rx="8" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="103" y="152">慢日志</text>
+    <path d="M220 145 H300" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="300" y="110" width="150" height="70" rx="8" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="332" y="152">EXPLAIN</text>
+    <path d="M450 145 H530" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="530" y="110" width="150" height="70" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="556" y="152">改 SQL/索引</text>
+    <path d="M605 180 V245 H280 V190" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+    <rect x="735" y="110" width="125" height="70" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="764" y="152">压测验证</text>
+    <path d="M680 145 H735" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+  <text x="118" y="300" font-family="Arial, sans-serif" font-size="17" fill="#475569">不要只看耗时，要同时看扫描行数、返回行数、锁等待、临时表、排序和业务峰值。</text>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+  </defs>
+</svg>

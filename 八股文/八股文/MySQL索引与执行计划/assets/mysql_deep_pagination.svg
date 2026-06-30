@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="360" viewBox="0 0 920 360">
+  <rect width="920" height="360" fill="#f8fafc"/>
+  <text x="36" y="46" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">深分页：offset 越大，丢弃越多</text>
+  <rect x="80" y="105" width="760" height="74" rx="8" fill="#fff" stroke="#94a3b8"/>
+  <rect x="95" y="125" width="500" height="34" rx="4" fill="#fecaca"/>
+  <rect x="610" y="125" width="105" height="34" rx="4" fill="#bbf7d0"/>
+  <text x="250" y="149" font-family="Arial, sans-serif" font-size="16" fill="#7f1d1d">offset 丢弃区</text>
+  <text x="628" y="149" font-family="Arial, sans-serif" font-size="16" fill="#14532d">limit 返回</text>
+  <path d="M170 226 H735" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="205" y="260" font-family="Arial, sans-serif" font-size="17" fill="#334155">优化方向：基于 last_id / last_sort_key 做游标翻页，缩小扫描区间。</text>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+  </defs>
+</svg>

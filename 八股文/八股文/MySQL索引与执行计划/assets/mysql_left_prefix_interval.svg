@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="380" viewBox="0 0 1040 380">
+  <rect width="1040" height="380" fill="#f8fafc"/>
+  <text x="40" y="44" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">最左前缀：连续命中才能定位区间</text>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#0f172a">
+    <rect x="70" y="94" width="900" height="70" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="96" y="122" font-weight="700">索引 (a, b, c) 的有序结果</text>
+    <text x="96" y="148">(1,1,1)  (1,1,2)  (1,2,1)  (1,2,2)  (2,1,1)  (2,1,2)  (2,2,1)  (2,2,2)</text>
+    <rect x="70" y="205" width="260" height="90" rx="10" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="100" y="236" font-weight="700">a = 1 and b = 2</text>
+    <text x="100" y="266">可连续定位到小区间</text>
+    <rect x="390" y="205" width="260" height="90" rx="10" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="420" y="236" font-weight="700">b = 2</text>
+    <text x="420" y="266">缺少 a，难以直接定位</text>
+    <rect x="710" y="205" width="260" height="90" rx="10" fill="#fef3c7" stroke="#d97706"/>
+    <text x="740" y="236" font-weight="700">a = 1 and c = 2</text>
+    <text x="740" y="266">跳过 b，连续性中断</text>
+  </g>
+  <path d="M255 164 L200 205" stroke="#16a34a" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <path d="M520 164 L520 205" stroke="#dc2626" stroke-width="3" marker-end="url(#arrow-red)"/>
+  <path d="M375 164 L840 205" stroke="#d97706" stroke-width="3" marker-end="url(#arrow-orange)"/>
+  <defs>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#d97706"/>
+    </marker>
+  </defs>
+</svg>

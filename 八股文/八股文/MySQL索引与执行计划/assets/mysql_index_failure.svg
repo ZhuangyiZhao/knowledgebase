@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="360" viewBox="0 0 920 360">
+  <rect width="920" height="360" fill="#f8fafc"/>
+  <text x="36" y="46" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">常见索引失效场景</text>
+  <g font-family="Arial, sans-serif" font-size="17" fill="#1f2937">
+    <rect x="70" y="105" width="210" height="70" rx="8" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="110" y="147">左侧函数计算</text>
+    <rect x="355" y="105" width="210" height="70" rx="8" fill="#fef3c7" stroke="#d97706"/>
+    <text x="393" y="147">前置模糊匹配</text>
+    <rect x="640" y="105" width="210" height="70" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
+    <text x="688" y="147">隐式类型转换</text>
+    <rect x="212" y="235" width="500" height="56" rx="8" fill="#fff" stroke="#94a3b8"/>
+    <text x="250" y="270">核心判断：索引列是否还能保持有序可定位。</text>
+  </g>
+</svg>

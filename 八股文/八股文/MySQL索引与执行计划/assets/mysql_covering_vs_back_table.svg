@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="400" viewBox="0 0 1040 400">
+  <rect width="1040" height="400" fill="#f8fafc"/>
+  <text x="40" y="44" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">覆盖索引减少回表路径</text>
+  <g font-family="Arial, sans-serif" font-size="16" fill="#0f172a">
+    <text x="70" y="100" font-weight="700">普通二级索引查询</text>
+    <rect x="70" y="125" width="210" height="70" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="100" y="166">二级索引叶子</text>
+    <path d="M290 160 H410" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="420" y="125" width="210" height="70" rx="10" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="450" y="166">拿主键回表</text>
+    <path d="M640 160 H760" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="770" y="125" width="200" height="70" rx="10" fill="#fef3c7" stroke="#d97706"/>
+    <text x="802" y="166">聚簇索引整行</text>
+    <text x="70" y="255" font-weight="700">覆盖索引查询</text>
+    <rect x="70" y="280" width="300" height="70" rx="10" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="104" y="321">二级索引已包含所需列</text>
+    <path d="M380 315 H520" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="530" y="280" width="250" height="70" rx="10" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="570" y="321">直接返回结果</text>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1960" viewBox="0 0 1400 1960" role="img" aria-labelledby="title desc">
+  <title id="title">InnoDB RR 通过 MVCC 和 ReadView 实现可重复读</title>
+  <desc id="desc">展示 InnoDB 在 RR 隔离级别下如何通过 MVCC、ReadView、undo log 版本链、快照读和当前读实现可重复读，并用多个事务并发例子说明。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f8fb; }
+      .panel { fill: #ffffff; stroke: #d8dee9; stroke-width: 2; rx: 8; }
+      .panel-blue { fill: #eef6ff; stroke: #8cbce8; stroke-width: 2; rx: 8; }
+      .panel-green { fill: #eefaf2; stroke: #8ecf9b; stroke-width: 2; rx: 8; }
+      .panel-yellow { fill: #fff8e7; stroke: #e3bd5e; stroke-width: 2; rx: 8; }
+      .panel-red { fill: #fff0f0; stroke: #e39191; stroke-width: 2; rx: 8; }
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 34px; font-weight: 800; fill: #172033; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 18px; fill: #5c667a; }
+      .h2 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 24px; font-weight: 800; fill: #172033; }
+      .h3 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 18px; font-weight: 750; fill: #172033; }
+      .txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; fill: #273044; }
+      .small { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; fill: #465168; }
+      .code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 14px; fill: #24324b; }
+      .muted { fill: #667085; }
+      .good { fill: #137333; }
+      .bad { fill: #b42318; }
+      .accent { fill: #1f6feb; }
+      .line { stroke: #8a94a6; stroke-width: 2.2; fill: none; }
+      .line-blue { stroke: #1f6feb; stroke-width: 2.6; fill: none; }
+      .line-green { stroke: #229954; stroke-width: 2.6; fill: none; }
+      .line-red { stroke: #d93f3f; stroke-width: 2.6; fill: none; }
+      .dash { stroke-dasharray: 8 7; }
+      .pill { fill: #172033; rx: 14; }
+      .pill-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; font-weight: 750; fill: #ffffff; }
+      .tag { fill: #edf2f7; stroke: #c9d2df; stroke-width: 1; rx: 6; }
+      .tag-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 13px; font-weight: 700; fill: #344054; }
+      .shadow { filter: drop-shadow(0 4px 12px rgba(16,24,40,0.08)); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a94a6"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6feb"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#229954"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d93f3f"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="1960"/>
+
+  <text class="title" x="64" y="70">InnoDB RR：MVCC + ReadView 如何实现可重复读</text>
+  <text class="subtitle" x="64" y="104">普通 SELECT 是快照读：事务第一次一致性读创建 ReadView，后续复用；当前读读取最新版本，并配合锁解决并发插入/修改。</text>
+
+  <rect class="panel shadow" x="64" y="135" width="1272" height="250"/>
+  <text class="h2" x="96" y="178">1. 核心对象</text>
+
+  <rect class="panel-blue" x="96" y="205" width="340" height="130"/>
+  <text class="h3" x="120" y="236">数据行隐藏字段</text>
+  <text class="txt" x="120" y="268">trx_id：最后修改该行的事务 ID</text>
+  <text class="txt" x="120" y="296">roll_pointer：指向 undo log 旧版本</text>
+  <text class="small muted" x="120" y="322">每次 UPDATE 会产生新版本，并保留旧版本</text>
+
+  <rect class="panel-green" x="530" y="205" width="340" height="130"/>
+  <text class="h3" x="554" y="236">undo log 版本链</text>
+  <text class="txt" x="554" y="268">当前版本不可见时，沿版本链回溯</text>
+  <text class="code" x="554" y="298">age=20(trx_id=10) -> age=18</text>
+  <text class="small muted" x="554" y="322">直到找到对 ReadView 可见的版本</text>
+
+  <rect class="panel-yellow" x="964" y="205" width="340" height="130"/>
+  <text class="h3" x="988" y="236">ReadView</text>
+  <text class="txt" x="988" y="268">记录创建快照时的活跃事务集合</text>
+  <text class="code" x="988" y="298">creator_trx_id, m_ids</text>
+  <text class="code" x="988" y="322">min_trx_id, max_trx_id</text>
+
+  <path class="line-blue" d="M 438 270 C 470 270, 492 270, 524 270" marker-end="url(#arrowBlue)"/>
+  <path class="line-green" d="M 872 270 C 904 270, 926 270, 958 270" marker-end="url(#arrowGreen)"/>
+
+  <rect class="panel shadow" x="64" y="420" width="1272" height="310"/>
+  <text class="h2" x="96" y="464">2. ReadView 可见性判断</text>
+  <text class="subtitle" x="96" y="494">判断某个版本的 trx_id 是否对当前事务可见。</text>
+
+  <rect class="tag" x="96" y="525" width="230" height="50"/>
+  <text class="tag-text" x="116" y="556">trx_id == 当前事务 ID</text>
+  <text class="txt good" x="365" y="556">可见：自己修改的自己能看到</text>
+
+  <rect class="tag" x="96" y="590" width="230" height="50"/>
+  <text class="tag-text" x="116" y="621">trx_id &lt; min_trx_id</text>
+  <text class="txt good" x="365" y="621">可见：ReadView 创建前已经提交</text>
+
+  <rect class="tag" x="96" y="655" width="230" height="50"/>
+  <text class="tag-text" x="116" y="686">trx_id &gt;= max_trx_id</text>
+  <text class="txt bad" x="365" y="686">不可见：ReadView 创建后才出现</text>
+
+  <rect class="panel-blue" x="760" y="525" width="500" height="180"/>
+  <text class="h3" x="790" y="558">如果 min_trx_id &lt;= trx_id &lt; max_trx_id</text>
+  <text class="txt bad" x="790" y="596">trx_id 在 m_ids 中：不可见</text>
+  <text class="small muted" x="1015" y="596">创建快照时该事务还活跃</text>
+  <text class="txt good" x="790" y="638">trx_id 不在 m_ids 中：可见</text>
+  <text class="small muted" x="1015" y="638">创建快照前该事务已经提交</text>
+  <text class="code" x="790" y="682">m_ids = [12, 18, 21], min=12, max=25</text>
+
+  <rect class="pill" x="96" y="760" width="246" height="36"/>
+  <text class="pill-text" x="120" y="783">RR：事务内复用同一个 ReadView</text>
+  <rect class="pill" x="384" y="760" width="266" height="36"/>
+  <text class="pill-text" x="408" y="783">RC：每次 SELECT 新建 ReadView</text>
+
+  <rect class="panel shadow" x="64" y="835" width="1272" height="520"/>
+  <text class="h2" x="96" y="879">3. 例子 A：RR 下普通 SELECT 可重复读</text>
+  <text class="subtitle" x="96" y="909">事务 A 的第一次普通 SELECT 创建 ReadView；事务 B 后续提交的新版本，对 A 的快照不可见。</text>
+
+  <line class="line" x1="170" y1="965" x2="1230" y2="965" marker-end="url(#arrow)"/>
+  <text class="small muted" x="1238" y="970">时间</text>
+
+  <text class="h3" x="96" y="1005">事务 A</text>
+  <line class="line-blue" x1="190" y1="1000" x2="1220" y2="1000"/>
+  <circle cx="250" cy="1000" r="8" fill="#1f6feb"/>
+  <text class="code" x="220" y="1033">BEGIN</text>
+  <circle cx="420" cy="1000" r="8" fill="#1f6feb"/>
+  <text class="code" x="350" y="1033">SELECT balance</text>
+  <text class="small good" x="365" y="1057">读到 100；创建 ReadView</text>
+  <circle cx="1040" cy="1000" r="8" fill="#1f6feb"/>
+  <text class="code" x="975" y="1033">SELECT balance</text>
+  <text class="small good" x="990" y="1057">仍读到 100</text>
+
+  <text class="h3" x="96" y="1105">事务 B</text>
+  <line class="line-green" x1="190" y1="1100" x2="1220" y2="1100"/>
+  <circle cx="610" cy="1100" r="8" fill="#229954"/>
+  <text class="code" x="568" y="1133">UPDATE 100->200</text>
+  <circle cx="780" cy="1100" r="8" fill="#229954"/>
+  <text class="code" x="752" y="1133">COMMIT</text>
+
+  <path class="line-red dash" d="M 810 1092 C 875 1048, 920 1010, 1018 1004" marker-end="url(#arrowRed)"/>
+  <text class="small bad" x="830" y="1073">B 的新版本晚于 A 的 ReadView，对 A 不可见</text>
+
+  <rect class="panel-blue" x="96" y="1185" width="590" height="150"/>
+  <text class="h3" x="124" y="1218">版本链</text>
+  <rect class="tag" x="124" y="1240" width="205" height="58"/>
+  <text class="code" x="145" y="1264">balance=200</text>
+  <text class="small bad" x="145" y="1286">trx_id = B，不可见</text>
+  <path class="line" d="M 336 1269 L 410 1269" marker-end="url(#arrow)"/>
+  <rect class="tag" x="420" y="1240" width="205" height="58"/>
+  <text class="code" x="445" y="1264">balance=100</text>
+  <text class="small good" x="445" y="1286">旧版本，可见</text>
+
+  <rect class="panel shadow" x="64" y="1390" width="1272" height="220"/>
+  <text class="h2" x="96" y="1435">4. 幻读：快照读靠 ReadView，当前读靠锁</text>
+  <text class="txt" x="96" y="1480">普通范围 SELECT：</text>
+  <text class="code" x="260" y="1480">SELECT * FROM user WHERE age &gt;= 18;</text>
+  <text class="small good" x="96" y="1510">RR 下复用 ReadView，新插入记录对旧快照不可见。</text>
+  <text class="txt" x="96" y="1550">当前范围读：</text>
+  <text class="code" x="232" y="1550">SELECT * FROM user WHERE age BETWEEN 10 AND 30 FOR UPDATE;</text>
+  <text class="small muted" x="96" y="1580">InnoDB 使用 Record Lock + Gap Lock = Next-Key Lock，阻止别的事务在范围内插入。</text>
+
+  <rect class="panel shadow" x="64" y="1645" width="1272" height="205"/>
+  <text class="h2" x="96" y="1689">5. 例子 B / C：自己的修改可见，当前读读最新</text>
+
+  <rect class="panel-green" x="96" y="1725" width="565" height="95"/>
+  <text class="h3" x="124" y="1757">例子 B：自己的修改自己能看到</text>
+  <text class="code" x="124" y="1789">A: SELECT -> 100；B: UPDATE 100->200; COMMIT</text>
+  <text class="code" x="124" y="1815">A: UPDATE 100->150; SELECT -> 150</text>
+  <text class="small good" x="124" y="1841">因为 trx_id == creator_trx_id，当前事务自己的版本可见。</text>
+
+  <rect class="panel-yellow" x="735" y="1725" width="565" height="95"/>
+  <text class="h3" x="763" y="1757">例子 C：快照读和当前读不同</text>
+  <text class="code" x="763" y="1789">A: SELECT age -> 18；B: UPDATE 18->20; COMMIT</text>
+  <text class="code" x="763" y="1815">A: SELECT -> 18；SELECT FOR UPDATE -> 20</text>
+  <text class="small muted" x="763" y="1841">普通 SELECT 走快照；FOR UPDATE 是当前读，读最新并加锁。</text>
+
+  <rect class="panel-blue shadow" x="64" y="1870" width="1272" height="58"/>
+  <text class="h3" x="96" y="1907">面试一句话：RR 的普通查询通过 MVCC + ReadView 读事务级快照；不可见的新版本沿 undo log 找旧版本，因此同一事务内多次读结果一致。</text>
+</svg>

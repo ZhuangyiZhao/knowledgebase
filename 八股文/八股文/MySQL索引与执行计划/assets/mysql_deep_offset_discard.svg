@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="390" viewBox="0 0 1040 390">
+  <rect width="1040" height="390" fill="#f8fafc"/>
+  <text x="40" y="44" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a">深分页：offset 越大，扫描后跳过的记录越多</text>
+  <text x="40" y="78" font-family="Arial, sans-serif" font-size="16" fill="#475569">示例：limit 20 offset 100000</text>
+  <g font-family="Arial, sans-serif" font-size="14" fill="#0f172a">
+    <rect x="70" y="125" width="660" height="70" rx="8" fill="#e2e8f0" stroke="#94a3b8"/>
+    <text x="96" y="166">前 100000 条匹配记录：扫描到，但跳过不返回</text>
+    <rect x="750" y="125" width="220" height="70" rx="8" fill="#dcfce7" stroke="#16a34a"/>
+    <text x="795" y="166">返回 20 条</text>
+    <path d="M95 235 H945" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+    <text x="88" y="270">第 1 条</text>
+    <text x="356" y="270">...</text>
+    <text x="628" y="270">第 100000 条</text>
+    <text x="768" y="270">第 100001 条</text>
+    <text x="890" y="270">第 100020 条</text>
+    <rect x="210" y="308" width="620" height="44" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="248" y="336">扫描成本约随 offset + limit 增长，而不是只和 limit 有关</text>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+  </defs>
+</svg>

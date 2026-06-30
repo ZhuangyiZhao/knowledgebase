@@ -1,0 +1,468 @@
+2026-05-22 12:26:22 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-22 12:26:22 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-22 12:26:22 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-22 12:26:22 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-22 12:26:22 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-22 12:26:22 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-22 12:26:22 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-22 12:26:22 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-22 12:26:22 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-22 12:26:22 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-22 12:26:22 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-22 12:26:22 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-22 12:26:22 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-22 12:26:26 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-22 12:26:26 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-22 12:26:26 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-22 12:26:26 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-22 12:26:26 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-22 12:26:26 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-22 12:26:26 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-22 12:26:26 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-22 12:26:26 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-22 12:26:26 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-22 12:26:26 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-22 12:26:26 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-22 12:26:26 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-22 12:26:39 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-22 12:26:39 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-22 12:26:39 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-22 12:26:39 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-22 12:26:39 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-22 12:26:39 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-22 12:26:39 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-22 12:26:39 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-22 12:26:39 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-22 12:26:39 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-22 12:26:39 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-22 12:26:39 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-22 12:26:39 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-22 12:26:41 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-22 12:26:41 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-22 12:26:41 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-22 12:26:41 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-22 12:26:41 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-22 12:26:41 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-22 12:26:41 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-22 12:26:41 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-22 12:26:41 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-22 12:26:41 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-22 12:26:41 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-22 12:26:41 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-22 12:26:41 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-22 12:26:43 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-22 12:26:43 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-22 12:26:43 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-22 12:26:43 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-22 12:26:43 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-22 12:26:43 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-22 12:26:43 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-22 12:26:43 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-22 12:26:43 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-22 12:26:43 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-22 12:26:43 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-22 12:26:43 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-22 12:26:43 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-22 14:04:17 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-22 14:04:17 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-22 14:04:17 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-22 14:04:17 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-22 14:04:17 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-22 14:04:17 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-22 14:04:17 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-22 14:04:17 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-22 14:04:17 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-22 14:04:17 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-22 14:04:17 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-22 14:04:17 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-22 14:04:17 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-22 14:04:36 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-22 14:04:36 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-22 14:04:36 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-22 14:04:36 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-22 14:04:36 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-22 14:04:36 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-22 14:04:36 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-22 14:04:36 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-22 14:04:36 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-22 14:04:36 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-22 14:04:36 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-22 14:04:36 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-22 14:04:36 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-22 14:04:37 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-22 14:04:37 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-22 14:04:37 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-22 14:04:37 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-22 14:04:37 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-22 14:04:37 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-22 14:04:37 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-22 14:04:37 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-22 14:04:37 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-22 14:04:37 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-22 14:04:37 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-22 14:04:37 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-22 14:04:37 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-22 14:08:13 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-22 14:08:13 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-22 14:08:13 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-22 14:08:13 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-22 14:08:13 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-22 14:08:13 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-22 14:08:13 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-22 14:08:13 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-22 14:08:13 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-22 14:08:13 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-22 14:08:13 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-22 14:08:13 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-22 14:08:13 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-22 14:08:15 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-22 14:08:15 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-22 14:08:15 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-22 14:08:15 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-22 14:08:15 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-22 14:08:15 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-22 14:08:15 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-22 14:08:15 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-22 14:08:15 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-22 14:08:15 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-22 14:08:15 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-22 14:08:15 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-22 14:08:15 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-29 16:27:22 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-29 16:27:22 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-29 16:27:22 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-29 16:27:22 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-29 16:27:22 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-29 16:27:22 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-29 16:27:22 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-29 16:27:22 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-29 16:27:22 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-29 16:27:22 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-29 16:27:22 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-29 16:27:22 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-29 16:27:22 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-31 17:15:14 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-31 17:15:14 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-31 17:15:14 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-31 17:15:14 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-31 17:15:14 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-31 17:15:14 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-31 17:15:14 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-31 17:15:14 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-31 17:15:14 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-31 17:15:14 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-31 17:15:14 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-31 17:15:14 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-31 17:15:14 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-31 17:17:16 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-31 17:17:16 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-31 17:17:16 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-31 17:17:16 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-31 17:17:16 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-31 17:17:16 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-31 17:17:16 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-31 17:17:16 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-31 17:17:16 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-31 17:17:16 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-31 17:17:16 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-31 17:17:16 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-31 17:17:16 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-31 18:00:56 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-31 18:00:56 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-31 18:00:56 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-31 18:00:56 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-31 18:00:56 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-31 18:00:56 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-31 18:00:56 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-31 18:00:56 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-31 18:00:56 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-31 18:00:56 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-31 18:00:56 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-31 18:00:56 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-31 18:00:56 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-31 18:01:20 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-31 18:01:20 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-31 18:01:20 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-31 18:01:20 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-31 18:01:20 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-31 18:01:20 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-31 18:01:20 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-31 18:01:20 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-31 18:01:20 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-31 18:01:20 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-31 18:01:20 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-31 18:01:20 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-31 18:01:20 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-31 18:02:36 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-31 18:02:36 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-31 18:02:36 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-31 18:02:36 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-31 18:02:36 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-31 18:02:36 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-31 18:02:36 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-31 18:02:36 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-31 18:02:36 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-31 18:02:36 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-31 18:02:36 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-31 18:02:36 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-31 18:02:36 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-31 18:02:48 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-31 18:02:48 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-31 18:02:48 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-31 18:02:48 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-31 18:02:48 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-31 18:02:48 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-31 18:02:48 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-31 18:02:48 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-31 18:02:48 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-31 18:02:48 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-31 18:02:48 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-31 18:02:48 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-31 18:02:48 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-31 18:14:00 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-31 18:14:00 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-31 18:14:00 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-31 18:14:00 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-31 18:14:00 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-31 18:14:00 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-31 18:14:00 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-31 18:14:00 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-31 18:14:00 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-31 18:14:00 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-31 18:14:00 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-31 18:14:00 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-31 18:14:00 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-05-31 18:14:18 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-05-31 18:14:18 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-05-31 18:14:18 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-05-31 18:14:18 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-05-31 18:14:18 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-05-31 18:14:18 - code_review_mcp - INFO - Registered tools for review type: code
+2026-05-31 18:14:18 - code_review_mcp - INFO - Registered tools for review type: config
+2026-05-31 18:14:18 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-05-31 18:14:18 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-05-31 18:14:18 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-05-31 18:14:18 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-05-31 18:14:18 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-05-31 18:14:18 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-09 21:56:03 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-09 21:56:03 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-09 21:56:03 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-09 21:56:03 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-09 21:56:03 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-09 21:56:03 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-09 21:56:03 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-09 21:56:03 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-09 21:56:03 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-09 21:56:03 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-09 21:56:03 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-09 21:56:03 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-09 21:56:03 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-09 21:56:39 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-09 21:56:39 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-09 21:56:39 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-09 21:56:39 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-09 21:56:39 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-09 21:56:39 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-09 21:56:39 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-09 21:56:39 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-09 21:56:39 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-09 21:56:39 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-09 21:56:39 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-09 21:56:39 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-09 21:56:39 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-22 12:51:58 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-22 12:51:58 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-22 12:51:58 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-22 12:51:58 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-22 12:51:58 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-22 12:51:58 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-22 12:51:58 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-22 12:51:58 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-22 12:51:58 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-22 12:51:58 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-22 12:51:58 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-22 12:51:58 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-22 12:51:58 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-22 12:52:11 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-22 12:52:11 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-22 12:52:11 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-22 12:52:11 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-22 12:52:11 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-22 12:52:11 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-22 12:52:11 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-22 12:52:11 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-22 12:52:11 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-22 12:52:11 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-22 12:52:11 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-22 12:52:11 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-22 12:52:11 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-22 20:33:53 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-22 20:33:53 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-22 20:33:53 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-22 20:33:53 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-22 20:33:53 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-22 20:33:53 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-22 20:33:53 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-22 20:33:53 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-22 20:33:53 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-22 20:33:53 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-22 20:33:53 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-22 20:33:53 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-22 20:33:53 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-22 20:33:57 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-22 20:33:57 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-22 20:33:57 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-22 20:33:57 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-22 20:33:57 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-22 20:33:57 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-22 20:33:57 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-22 20:33:57 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-22 20:33:57 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-22 20:33:57 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-22 20:33:57 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-22 20:33:57 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-22 20:33:57 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-23 19:54:51 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-23 19:54:51 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-23 19:54:51 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-23 19:54:51 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-23 19:54:51 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-23 19:54:51 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-23 19:54:51 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-23 19:54:51 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-23 19:54:51 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-23 19:54:51 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-23 19:54:51 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-23 19:54:51 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-23 19:54:51 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-23 19:55:14 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-23 19:55:14 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-23 19:55:14 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-23 19:55:14 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-23 19:55:14 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-23 19:55:14 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-23 19:55:14 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-23 19:55:14 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-23 19:55:14 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-23 20:18:52 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-23 20:18:52 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-23 20:18:52 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-23 20:18:52 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-23 20:18:52 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-23 20:18:52 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-23 20:18:52 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-23 20:18:52 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-23 20:18:52 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-23 20:18:52 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-23 20:18:52 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-23 20:18:52 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-23 20:18:52 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-23 20:19:02 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-23 20:19:02 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-23 20:19:02 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-23 20:19:02 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-23 20:19:02 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-23 20:19:02 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-23 20:19:02 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-23 20:19:02 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-23 20:19:02 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-23 20:19:02 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-23 20:19:02 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-23 20:19:02 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-23 20:19:02 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-24 08:33:16 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-24 08:33:16 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-24 08:33:16 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-24 08:33:16 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-24 08:33:16 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-24 08:33:16 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-24 08:33:16 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-24 08:33:16 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-24 08:33:16 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-24 08:33:16 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-24 08:33:16 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-24 08:33:16 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-24 08:33:16 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-24 10:32:49 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-24 10:32:49 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-24 10:32:49 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-24 10:32:49 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-24 10:32:49 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-24 10:32:49 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-24 10:32:49 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-24 10:32:49 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-24 10:32:49 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-24 10:32:49 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-24 10:32:49 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-24 10:32:49 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-24 10:32:49 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-24 10:33:09 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-24 10:33:09 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-24 10:33:09 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-24 10:33:09 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-24 10:33:09 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-24 10:33:09 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-24 10:33:09 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-24 10:33:09 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-24 10:33:09 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-24 10:33:09 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-24 10:33:09 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-24 10:33:09 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-24 10:33:09 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-24 19:49:38 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-24 19:49:38 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-24 19:49:38 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-24 19:49:38 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-24 19:49:38 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-24 19:49:38 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-24 19:49:38 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-24 19:49:38 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-24 19:49:38 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-24 19:49:38 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-24 19:49:38 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-24 19:49:38 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-24 19:49:38 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-24 19:49:47 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-24 19:49:47 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-24 19:49:47 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-24 19:49:47 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered capability: sddl_check (SDDL database query analysis)
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered tools for capability: sddl_check
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered review type: code (Professional code review)
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered review type: config (Configuration file review)
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered review type: fast (Fast code review (deprecated — redirects to pro code review))
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered tools for review type: code
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered tools for review type: config
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered tools for review type: fast
+2026-06-24 19:49:47 - code_review_mcp - INFO - Registered pipeline: artifact_check (Full artifact validation: config review) with stages ['config']
+2026-06-24 19:49:47 - code_review_mcp - INFO - Starting Code Review MCP Server with hybrid logging...
+2026-06-24 19:49:47 - code_review_mcp - INFO - ARC_ENV=live  base_url=https://arc.shopee.io
+2026-06-24 19:49:47 - code_review_mcp - INFO - Local log files will be saved to ./log/ directory
+2026-06-24 19:49:47 - code_review_mcp - INFO - Logs will also be sent to connected MCP clients

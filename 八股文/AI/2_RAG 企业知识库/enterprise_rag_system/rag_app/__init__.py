@@ -1,0 +1,1 @@
+"""Lightweight enterprise RAG demo."""

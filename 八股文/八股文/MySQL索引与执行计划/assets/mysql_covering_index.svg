@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="360" viewBox="0 0 920 360">
+  <rect width="920" height="360" fill="#f8fafc"/>
+  <text x="36" y="46" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#111827">覆盖索引：只扫二级索引即可返回</text>
+  <rect x="70" y="95" width="230" height="190" rx="8" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="112" y="128" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">idx_user_status</text>
+  <text x="105" y="168" font-family="Arial, sans-serif" font-size="16" fill="#334155">user_id</text>
+  <text x="105" y="202" font-family="Arial, sans-serif" font-size="16" fill="#334155">status</text>
+  <text x="105" y="236" font-family="Arial, sans-serif" font-size="16" fill="#334155">id</text>
+  <path d="M300 190 H450" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="450" y="116" width="390" height="148" rx="8" fill="#ecfccb" stroke="#65a30d"/>
+  <text x="492" y="164" font-family="Arial, sans-serif" font-size="18" fill="#1f2937">select id, user_id, status</text>
+  <text x="492" y="207" font-family="Arial, sans-serif" font-size="18" fill="#1f2937">Extra: Using index</text>
+  <text x="492" y="238" font-family="Arial, sans-serif" font-size="15" fill="#475569">不回到聚簇索引取整行</text>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
+    </marker>
+  </defs>
+</svg>
