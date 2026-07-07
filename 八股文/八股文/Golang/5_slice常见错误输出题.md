@@ -6,39 +6,57 @@
 
 ## 目录
 
-- [1. append 以后没有接住返回值](#1-append-以后没有接住返回值)
-- [2. 子切片 append 覆盖原数组](#2-子切片-append-覆盖原数组)
-- [3. append 扩容后不再共享底层数组](#3-append-扩容后不再共享底层数组)
-- [4. 函数里 append 影响不到外层长度](#4-函数里-append-影响不到外层长度)
-- [5. 函数里修改元素能影响外层](#5-函数里修改元素能影响外层)
-- [6. range 里修改循环变量没有用](#6-range-里修改循环变量没有用)
-- [7. range 开始前长度已经确定](#7-range-开始前长度已经确定)
-- [8. 删除元素后尾部仍然可能被引用](#8-删除元素后尾部仍然可能被引用)
-- [9. nil slice 和空 slice 不完全一样](#9-nil-slice-和空-slice-不完全一样)
-- [10. 三索引切片限制容量](#10-三索引切片限制容量)
-- [11. len 和 cap 不是一回事](#11-len-和-cap-不是一回事)
-- [12. 扩容后旧 slice 和新 slice 分家](#12-扩容后旧-slice-和新-slice-分家)
-- [13. 预分配容量减少扩容次数](#13-预分配容量减少扩容次数)
-- [14. nil map 可以读，不能写](#14-nil-map-可以读不能写)
-- [15. 读取不存在的 key 返回零值](#15-读取不存在的-key-返回零值)
-- [16. 用逗号 ok 区分不存在和零值](#16-用逗号-ok-区分不存在和零值)
-- [17. map 赋值后共享同一份数据](#17-map-赋值后共享同一份数据)
-- [18. 函数里修改 map 会影响外层](#18-函数里修改-map-会影响外层)
-- [19. range map 的顺序不固定](#19-range-map-的顺序不固定)
-- [20. 遍历 map 时删除 key 是允许的](#20-遍历-map-时删除-key-是允许的)
-- [21. 遍历 map 时新增 key 不要依赖是否会遍历到](#21-遍历-map-时新增-key-不要依赖是否会遍历到)
-- [22. 并发读写 map 可能直接崩溃](#22-并发读写-map-可能直接崩溃)
-- [23. sync.Mutex 和 sync.RWMutex 保护 map 的区别](#23-syncmutex-和-syncrwmutex-保护-map-的区别)
-- [24. WaitGroup 没有 Done 会一直等](#24-waitgroup-没有-done-会一直等)
-- [25. Done 次数超过 Add 会 panic](#25-done-次数超过-add-会-panic)
-- [26. Add 放到 goroutine 里可能等了个寂寞](#26-add-放到-goroutine-里可能等了个寂寞)
-- [27. 循环启动 goroutine 时要先 Add 再 go](#27-循环启动-goroutine-时要先-add-再-go)
-- [28. WaitGroup 使用后不要复制](#28-waitgroup-使用后不要复制)
-- [29. 总结口诀](#29-总结口诀)
+- [一、Slice 易错点](#一slice-易错点)
+  - [1. append 与底层数组](#1-append-与底层数组)
+    - [1.1 append 以后没有接住返回值](#11-append-以后没有接住返回值)
+    - [1.2 子切片 append 覆盖原数组](#12-子切片-append-覆盖原数组)
+    - [1.3 append 扩容后不再共享底层数组](#13-append-扩容后不再共享底层数组)
+    - [1.4 三索引切片限制容量](#14-三索引切片限制容量)
+    - [1.5 扩容后旧 slice 和新 slice 分家](#15-扩容后旧-slice-和新-slice-分家)
+    - [1.6 预分配容量减少扩容次数](#16-预分配容量减少扩容次数)
+  - [2. 函数传参与共享语义](#2-函数传参与共享语义)
+    - [2.1 函数里 append 影响不到外层长度](#21-函数里-append-影响不到外层长度)
+    - [2.2 函数里修改元素能影响外层](#22-函数里修改元素能影响外层)
+  - [3. range 与删除](#3-range-与删除)
+    - [3.1 range 里修改循环变量没有用](#31-range-里修改循环变量没有用)
+    - [3.2 range 开始前长度已经确定](#32-range-开始前长度已经确定)
+    - [3.3 删除元素后尾部仍然可能被引用](#33-删除元素后尾部仍然可能被引用)
+  - [4. 基础概念与边界](#4-基础概念与边界)
+    - [4.1 nil slice 和空 slice 不完全一样](#41-nil-slice-和空-slice-不完全一样)
+    - [4.2 len 和 cap 不是一回事](#42-len-和-cap-不是一回事)
+- [二、Map 易错点](#二map-易错点)
+  - [1. nil map 与读写判断](#1-nil-map-与读写判断)
+    - [1.1 nil map 可以读，不能写](#11-nil-map-可以读不能写)
+    - [1.2 读取不存在的 key 返回零值](#12-读取不存在的-key-返回零值)
+    - [1.3 用逗号 ok 区分不存在和零值](#13-用逗号-ok-区分不存在和零值)
+  - [2. 共享与传参](#2-共享与传参)
+    - [2.1 map 赋值后共享同一份数据](#21-map-赋值后共享同一份数据)
+    - [2.2 函数里修改 map 会影响外层](#22-函数里修改-map-会影响外层)
+  - [3. 遍历顺序与遍历修改](#3-遍历顺序与遍历修改)
+    - [3.1 range map 的顺序不固定](#31-range-map-的顺序不固定)
+    - [3.2 遍历 map 时删除 key 是允许的](#32-遍历-map-时删除-key-是允许的)
+    - [3.3 遍历 map 时新增 key 不要依赖是否会遍历到](#33-遍历-map-时新增-key-不要依赖是否会遍历到)
+  - [4. 并发安全与加锁](#4-并发安全与加锁)
+    - [4.1 并发读写 map 可能直接崩溃](#41-并发读写-map-可能直接崩溃)
+    - [4.2 sync.Mutex 和 sync.RWMutex 保护 map 的区别](#42-syncmutex-和-syncrwmutex-保护-map-的区别)
+- [三、WaitGroup 易错点](#三waitgroup-易错点)
+  - [1. 计数器增减](#1-计数器增减)
+    - [1.1 WaitGroup 没有 Done 会一直等](#11-waitgroup-没有-done-会一直等)
+    - [1.2 Done 次数超过 Add 会 panic](#12-done-次数超过-add-会-panic)
+  - [2. Add、go、Wait 的时序](#2-addgowait-的时序)
+    - [2.1 Add 放到 goroutine 里可能等了个寂寞](#21-add-放到-goroutine-里可能等了个寂寞)
+    - [2.2 循环启动 goroutine 时要先 Add 再 go](#22-循环启动-goroutine-时要先-add-再-go)
+  - [3. 传参与复制](#3-传参与复制)
+    - [3.1 WaitGroup 使用后不要复制](#31-waitgroup-使用后不要复制)
+- [四、总结口诀](#四总结口诀)
 
 ---
 
-## 1. append 以后没有接住返回值
+## 一、Slice 易错点
+
+### 1. append 与底层数组
+
+#### 1.1 append 以后没有接住返回值
 
 先判断输出：
 
@@ -67,7 +85,7 @@ fmt.Println(s) // [1 2 3]
 
 ---
 
-## 2. 子切片 append 覆盖原数组
+#### 1.2 子切片 append 覆盖原数组
 
 先判断输出：
 
@@ -108,7 +126,7 @@ append(b, 99)
 
 ---
 
-## 3. append 扩容后不再共享底层数组
+#### 1.3 append 扩容后不再共享底层数组
 
 先判断输出：
 
@@ -145,281 +163,7 @@ b := a[:2:2] // len=2 cap=2，append 会扩容
 
 ---
 
-## 4. 函数里 append 影响不到外层长度
-
-先判断输出：
-
-```go
-func add(s []int) {
-    s = append(s, 3)
-    fmt.Println("inside:", s, len(s), cap(s))
-}
-
-func main() {
-    s := make([]int, 0, 3)
-    s = append(s, 1, 2)
-
-    add(s)
-
-    fmt.Println("outside:", s, len(s), cap(s))
-}
-```
-
-输出：
-
-```text
-inside: [1 2 3] 3 3
-outside: [1 2] 2 3
-```
-
-原因：slice 传参会复制 slice header，也就是复制一份 `{ptr, len, cap}`。  
-函数里的 `append` 改的是函数内部那份 slice header 的 `len`，外层 `s` 的长度还是 2。
-
-注意：底层数组里其实可能已经写入了 `3`，只是外层 `s` 的长度看不到它。
-
-一句话记忆：**函数里 append 后如果想影响外层，要返回新的 slice。**
-
-正确写法：
-
-```go
-func add(s []int) []int {
-    return append(s, 3)
-}
-
-s = add(s)
-```
-
----
-
-## 5. 函数里修改元素能影响外层
-
-先判断输出：
-
-```go
-func change(s []int) {
-    s[0] = 99
-}
-
-func main() {
-    s := []int{1, 2, 3}
-    change(s)
-    fmt.Println(s)
-}
-```
-
-输出：
-
-```text
-[99 2 3]
-```
-
-原因：slice header 虽然是值传递，但 header 里的 `ptr` 指向同一个底层数组。  
-函数里 `s[0] = 99` 修改的是底层数组，所以外层能看到。
-
-和上一题对比：
-
-| 操作 | 是否影响外层 |
-|---|---|
-| `s[0] = 99` | 能，因为改的是底层数组 |
-| `s = append(s, 3)` | 不一定，因为改的是内部 slice header |
-
-一句话记忆：**改元素能看到，改长度看不到，除非把新 slice 返回去。**
-
----
-
-## 6. range 里修改循环变量没有用
-
-先判断输出：
-
-```go
-func main() {
-    s := []int{1, 2, 3}
-
-    for _, v := range s {
-        v *= 10
-    }
-
-    fmt.Println(s)
-}
-```
-
-输出：
-
-```text
-[1 2 3]
-```
-
-原因：`range` 的第二个变量 `v` 是元素值的一份拷贝。  
-修改 `v` 不会改到底层数组。
-
-正确写法：
-
-```go
-for i := range s {
-    s[i] *= 10
-}
-
-fmt.Println(s) // [10 20 30]
-```
-
-一句话记忆：**range 的 value 是拷贝，想改原 slice 就用下标。**
-
----
-
-## 7. range 开始前长度已经确定
-
-先判断输出：
-
-```go
-func main() {
-    s := []int{1, 2, 3}
-
-    for _, v := range s {
-        fmt.Println(v)
-        s = append(s, v+10)
-    }
-
-    fmt.Println("final:", s)
-}
-```
-
-输出：
-
-```text
-1
-2
-3
-final: [1 2 3 11 12 13]
-```
-
-原因：`range` 开始时，会先确定要遍历的长度。  
-循环过程中追加的新元素会进入 slice，但不会被本轮 `range` 继续遍历。
-
-一句话记忆：**range 不会因为你 append 了元素就无限循环。**
-
----
-
-## 8. 删除元素后尾部仍然可能被引用
-
-先判断输出：
-
-```go
-func main() {
-    s := []*int{}
-    a, b, c := 1, 2, 3
-    s = append(s, &a, &b, &c)
-
-    s = append(s[:1], s[2:]...)
-
-    fmt.Println(*s[0], *s[1], len(s), cap(s))
-}
-```
-
-输出：
-
-```text
-1 3 2 3
-```
-
-图解：
-
-![append 删除指针 slice 元素图解](./slice_delete_pointer_append.svg)
-
-原因：`append(s[:1], s[2:]...)` 是常见删除写法，会把后面的元素往前挪。  
-删除后逻辑上只剩 `[&a, &c]`，所以打印 `1 3`。
-
-但要注意，底层数组的尾部位置可能还残留旧引用。对于保存指针或大对象的 slice，如果长期持有这个底层数组，可能导致本该释放的对象还被引用。
-
-更稳的写法是删除后把尾部清掉：
-
-```go
-copy(s[1:], s[2:])
-s[len(s)-1] = nil
-s = s[:len(s)-1]
-```
-
-一句话记忆：**删除指针元素时，只缩短长度不一定等于清掉引用。**
-
----
-
-## 9. nil slice 和空 slice 不完全一样
-
-先判断输出：
-
-```go
-func main() {
-    var a []int
-    b := []int{}
-    c := make([]int, 0)
-
-    fmt.Println(a == nil, len(a), cap(a))
-    fmt.Println(b == nil, len(b), cap(b))
-    fmt.Println(c == nil, len(c), cap(c))
-}
-```
-
-输出：
-
-```text
-true 0 0
-false 0 0
-false 0 0
-```
-
-原因：`var a []int` 是 nil slice，没有底层数组。  
-`[]int{}` 和 `make([]int, 0)` 是空 slice，长度和容量也是 0，但它们不是 nil。
-
-它们共同点：
-
-```go
-len(a) == 0
-len(b) == 0
-a = append(a, 1) // 可以
-b = append(b, 1) // 也可以
-```
-
-注意：`append(a, 1)` 的返回值必须接住，单独写 `append(a, 1)` 不能编译。
-
-为什么 nil slice 也可以 `append`？
-
-```go
-var a []int
-```
-
-此时 `a` 是 nil slice：
-
-```go
-a: ptr=nil, len=0, cap=0
-```
-
-它没有底层数组，但它仍然是合法的 slice。`append` 发现容量不够，会自动分配新的底层数组，把 `1` 放进去，然后返回新的 slice：
-
-```go
-a = append(a, 1)
-// a: ptr -> [1], len=1, cap>=1
-```
-
-但 nil slice 不能直接用下标赋值：
-
-```go
-var a []int
-a[0] = 1 // panic: index out of range
-```
-
-因为这时 `len(a) == 0`，还没有第 0 个元素。
-
-不同点：
-
-```go
-a == nil // true
-b == nil // false
-```
-
-一句话记忆：**nil slice 和空 slice 都没元素，但 nil 判断不同。**
-
----
-
-## 10. 三索引切片限制容量
+#### 1.4 三索引切片限制容量
 
 先判断输出：
 
@@ -531,54 +275,7 @@ fmt.Println(b) // [1 2 99]
 
 ---
 
-## 11. len 和 cap 不是一回事
-
-先判断输出：
-
-```go
-func main() {
-    s := make([]int, 2, 5)
-
-    fmt.Println(s, len(s), cap(s))
-
-    s = append(s, 10)
-    fmt.Println(s, len(s), cap(s))
-}
-```
-
-输出：
-
-```text
-[0 0] 2 5
-[0 0 10] 3 5
-```
-
-原因：`make([]int, 2, 5)` 的含义是：
-
-```text
-len = 2，当前能通过下标访问的元素个数
-cap = 5，从当前位置到底层数组末尾的容量
-```
-
-所以一开始只能看到两个零值：
-
-```go
-fmt.Println(s) // [0 0]
-```
-
-虽然容量是 5，但不能直接访问 `s[2]`：
-
-```go
-s[2] = 10 // panic: index out of range
-```
-
-只有通过 `append` 把长度扩到 3 后，第三个元素才进入可见范围。
-
-一句话记忆：**`len` 决定能不能按下标访问，`cap` 只决定 append 前还有多少余量。**
-
----
-
-## 12. 扩容后旧 slice 和新 slice 分家
+#### 1.5 扩容后旧 slice 和新 slice 分家
 
 先判断输出：
 
@@ -626,7 +323,7 @@ t[0] = 99
 
 ---
 
-## 13. 预分配容量减少扩容次数
+#### 1.6 预分配容量减少扩容次数
 
 先判断输出：
 
@@ -666,7 +363,338 @@ cap 只有容量不够时才会增长
 
 ---
 
-## 14. nil map 可以读，不能写
+### 2. 函数传参与共享语义
+
+#### 2.1 函数里 append 影响不到外层长度 （易错）
+
+先判断输出：
+
+```go
+func add(s []int) {
+    s = append(s, 3)
+    fmt.Println("inside:", s, len(s), cap(s))
+}
+
+func main() {
+    s := make([]int, 0, 3)
+    s = append(s, 1, 2)
+
+    add(s)
+
+    fmt.Println("outside:", s, len(s), cap(s))
+}
+```
+
+输出：
+
+```text
+inside: [1 2 3] 3 3
+outside: [1 2] 2 3
+```
+
+原因：slice 传参会复制 slice header，也就是复制一份 `{ptr, len, cap}`。  
+函数里的 `append` 改的是函数内部那份 slice header 的 `len`，外层 `s` 的长度还是 2。
+
+注意：底层数组里其实可能已经写入了 `3`，只是外层 `s` 的长度看不到它。
+
+一句话记忆：**函数里 append 后如果想影响外层，要返回新的 slice。**
+
+正确写法：
+
+```go
+func add(s []int) []int {
+    return append(s, 3)
+}
+
+s = add(s)
+```
+
+---
+
+#### 2.2 函数里修改元素能影响外层
+
+先判断输出：
+
+```go
+func change(s []int) {
+    s[0] = 99
+}
+
+func main() {
+    s := []int{1, 2, 3}
+    change(s)
+    fmt.Println(s)
+}
+```
+
+输出：
+
+```text
+[99 2 3]
+```
+
+原因：slice header 虽然是值传递，但 header 里的 `ptr` 指向同一个底层数组。  
+函数里 `s[0] = 99` 修改的是底层数组，所以外层能看到。
+
+和上一题对比：
+
+| 操作 | 是否影响外层 |
+|---|---|
+| `s[0] = 99` | 能，因为改的是底层数组 |
+| `s = append(s, 3)` | 不一定，因为改的是内部 slice header |
+
+一句话记忆：**改元素能看到，改长度看不到，除非把新 slice 返回去。**
+
+---
+
+### 3. range 与删除
+
+#### 3.1 range 里修改循环变量没有用 （易错）
+
+先判断输出：
+
+```go
+func main() {
+    s := []int{1, 2, 3}
+
+    for _, v := range s {
+        v *= 10
+    }
+
+    fmt.Println(s)
+}
+```
+
+输出：
+
+```text
+[1 2 3]
+```
+
+原因：`range` 的第二个变量 `v` 是元素值的一份拷贝。  
+修改 `v` 不会改到底层数组。
+
+正确写法：
+
+```go
+for i := range s {
+    s[i] *= 10
+}
+
+fmt.Println(s) // [10 20 30]
+```
+
+一句话记忆：**range 的 value 是拷贝，想改原 slice 就用下标。**
+
+---
+
+#### 3.2 range 开始前长度已经确定（易错）
+
+先判断输出：
+
+```go
+func main() {
+    s := []int{1, 2, 3}
+
+    for _, v := range s {
+        fmt.Println(v)
+        s = append(s, v+10)
+    }
+
+    fmt.Println("final:", s)
+}
+```
+
+输出：
+
+```text
+1
+2
+3
+final: [1 2 3 11 12 13]
+```
+
+原因：`range` 开始时，会先确定要遍历的长度。  
+循环过程中追加的新元素会进入 slice，但不会被本轮 `range` 继续遍历。
+
+一句话记忆：**range 不会因为你 append 了元素就无限循环。**
+
+---
+
+#### 3.3 删除元素后尾部仍然可能被引用 （易错）
+
+先判断输出：
+
+```go
+func main() {
+    s := []*int{}
+    a, b, c := 1, 2, 3
+    s = append(s, &a, &b, &c)
+
+    s = append(s[:1], s[2:]...)
+
+    fmt.Println(*s[0], *s[1], len(s), cap(s))
+}
+```
+
+输出：
+
+```text
+1 3 2 3
+```
+
+图解：
+
+![append 删除指针 slice 元素图解](./slice_delete_pointer_append.svg)
+
+原因：`append(s[:1], s[2:]...)` 是常见删除写法，会把后面的元素往前挪。  
+删除后逻辑上只剩 `[&a, &c]`，所以打印 `1 3`。
+
+但要注意，底层数组的尾部位置可能还残留旧引用。对于保存指针或大对象的 slice，如果长期持有这个底层数组，可能导致本该释放的对象还被引用。
+
+更稳的写法是删除后把尾部清掉：
+
+```go
+copy(s[1:], s[2:])
+s[len(s)-1] = nil
+s = s[:len(s)-1]
+```
+
+一句话记忆：**删除指针元素时，只缩短长度不一定等于清掉引用。**
+
+---
+
+### 4. 基础概念与边界
+
+#### 4.1 nil slice 和空 slice 不完全一样
+
+先判断输出：
+
+```go
+func main() {
+    var a []int
+    b := []int{}
+    c := make([]int, 0)
+
+    fmt.Println(a == nil, len(a), cap(a))
+    fmt.Println(b == nil, len(b), cap(b))
+    fmt.Println(c == nil, len(c), cap(c))
+}
+```
+
+输出：
+
+```text
+true 0 0
+false 0 0
+false 0 0
+```
+
+原因：`var a []int` 是 nil slice，没有底层数组。  
+`[]int{}` 和 `make([]int, 0)` 是空 slice，长度和容量也是 0，但它们不是 nil。
+
+它们共同点：
+
+```go
+len(a) == 0
+len(b) == 0
+a = append(a, 1) // 可以
+b = append(b, 1) // 也可以
+```
+
+注意：`append(a, 1)` 的返回值必须接住，单独写 `append(a, 1)` 不能编译。
+
+为什么 nil slice 也可以 `append`？
+
+```go
+var a []int
+```
+
+此时 `a` 是 nil slice：
+
+```go
+a: ptr=nil, len=0, cap=0
+```
+
+它没有底层数组，但它仍然是合法的 slice。`append` 发现容量不够，会自动分配新的底层数组，把 `1` 放进去，然后返回新的 slice：
+
+```go
+a = append(a, 1)
+// a: ptr -> [1], len=1, cap>=1
+```
+
+但 nil slice 不能直接用下标赋值：
+
+```go
+var a []int
+a[0] = 1 // panic: index out of range
+```
+
+因为这时 `len(a) == 0`，还没有第 0 个元素。
+
+不同点：
+
+```go
+a == nil // true
+b == nil // false
+```
+
+一句话记忆：**nil slice 和空 slice 都没元素，但 nil 判断不同。**
+
+---
+
+#### 4.2 len 和 cap 不是一回事
+
+先判断输出：
+
+```go
+func main() {
+    s := make([]int, 2, 5)
+
+    fmt.Println(s, len(s), cap(s))
+
+    s = append(s, 10)
+    fmt.Println(s, len(s), cap(s))
+}
+```
+
+输出：
+
+```text
+[0 0] 2 5
+[0 0 10] 3 5
+```
+
+原因：`make([]int, 2, 5)` 的含义是：
+
+```text
+len = 2，当前能通过下标访问的元素个数
+cap = 5，从当前位置到底层数组末尾的容量
+```
+
+所以一开始只能看到两个零值：
+
+```go
+fmt.Println(s) // [0 0]
+```
+
+虽然容量是 5，但不能直接访问 `s[2]`：
+
+```go
+s[2] = 10 // panic: index out of range
+```
+
+只有通过 `append` 把长度扩到 3 后，第三个元素才进入可见范围。
+
+一句话记忆：**`len` 决定能不能按下标访问，`cap` 只决定 append 前还有多少余量。**
+
+---
+
+## 二、Map 易错点
+
+### 1. nil map 与读写判断
+
+#### 1.1 nil map 可以读，不能写 （易错）
 
 先判断输出：
 
@@ -705,7 +733,7 @@ m := make(map[string]int) // 非 nil map，可以写
 
 ---
 
-## 15. 读取不存在的 key 返回零值
+#### 1.2 读取不存在的 key 返回零值
 
 先判断输出：
 
@@ -744,7 +772,7 @@ func main() {
 
 ---
 
-## 16. 用逗号 ok 区分不存在和零值
+#### 1.3 用逗号 ok 区分不存在和零值
 
 先判断输出：
 
@@ -782,7 +810,9 @@ v, ok := m[key]
 
 ---
 
-## 17. map 赋值后共享同一份数据
+### 2. 共享与传参
+
+#### 2.1 map 赋值后共享同一份数据
 
 先判断输出：
 
@@ -813,7 +843,7 @@ map[a:99 b:2]
 
 ---
 
-## 18. 函数里修改 map 会影响外层
+#### 2.2 函数里修改 map 会影响外层
 
 先判断输出：
 
@@ -860,7 +890,9 @@ func main() {
 
 ---
 
-## 19. range map 的顺序不固定
+### 3. 遍历顺序与遍历修改
+
+#### 3.1 range map 的顺序不固定
 
 先判断输出：
 
@@ -915,7 +947,7 @@ for _, k := range keys {
 
 ---
 
-## 20. 遍历 map 时删除 key 是允许的
+#### 3.2 遍历 map 时删除 key 是允许的
 
 先判断输出：
 
@@ -944,7 +976,7 @@ map[a:1 c:3]
 ```
 
 原因：遍历 map 时删除当前或尚未遍历到的 key 是允许的，不会 panic。  
-但是最后打印 map 时，顺序仍然不固定。
+这里能确定的是最终内容里 `b` 被删掉了；不能确定的是 `fmt.Println(m)` 打印时，剩余键值对的先后顺序，因为 map 本身就是无序的。
 
 补充：删除不存在的 key 也不会 panic。
 
@@ -956,7 +988,7 @@ delete(m, "not-exist")
 
 ---
 
-## 21. 遍历 map 时新增 key 不要依赖是否会遍历到
+#### 3.3 遍历 map 时新增 key 不要依赖是否会遍历到
 
 先判断输出：
 
@@ -987,13 +1019,16 @@ b 2
 ```
 
 原因：Go 规范允许遍历 map 时新增元素，但新增的 key 在本轮遍历中**可能出现，也可能不出现**。  
-所以不要写依赖这种行为的业务逻辑。
+本质上是因为 map 遍历不是按固定顺序扫一张线性表，而是按运行时的哈希桶结构迭代。新 key 插入后，可能落到已经遍历过的位置，也可能落到后面还没遍历到的位置；如果插入过程中触发扩容或搬迁，遍历路径还会更复杂。  
+所以语言规范故意不保证“新增元素一定会不会被本轮看到”，业务代码不要依赖这种行为。
 
 一句话记忆：**遍历 map 时新增 key，能不能被本轮 range 看到是不确定的。**
 
 ---
 
-## 22. 并发读写 map 可能直接崩溃
+### 4. 并发安全与加锁
+
+#### 4.1 并发读写 map 可能直接崩溃
 
 先判断结果：
 
@@ -1043,7 +1078,7 @@ mu.RUnlock()
 
 ---
 
-## 23. sync.Mutex 和 sync.RWMutex 保护 map 的区别
+#### 4.2 sync.Mutex 和 sync.RWMutex 保护 map 的区别
 
 先判断输出顺序和并发关系：
 
@@ -1146,7 +1181,11 @@ func (s *SafeMap) Inc(k string) {
 
 ---
 
-## 24. WaitGroup 没有 Done 会一直等
+## 三、WaitGroup 易错点
+
+### 1. 计数器增减
+
+#### 1.1 WaitGroup 没有 Done 会一直等
 
 先判断输出：
 
@@ -1191,7 +1230,7 @@ fmt.Println("all done")
 
 ---
 
-## 25. Done 次数超过 Add 会 panic
+#### 1.2 Done 次数超过 Add 会 panic
 
 先判断输出：
 
@@ -1227,7 +1266,9 @@ wg.Add(-1)
 
 ---
 
-## 26. Add 放到 goroutine 里可能等了个寂寞
+### 2. Add、go、Wait 的时序
+
+#### 2.1 Add 放到 goroutine 里可能等了个寂寞（易错）
 
 先判断输出：
 
@@ -1289,7 +1330,7 @@ fmt.Println("all done")
 
 ---
 
-## 27. 循环启动 goroutine 时要先 Add 再 go
+#### 2.2 循环启动 goroutine 时要先 Add 再 go
 
 先判断这段代码有什么问题：
 
@@ -1341,11 +1382,15 @@ func main() {
 all done
 ```
 
+补充理解：`go func() { defer wg.Done() }()` 这种写法可以直接用外层的 `wg`，不需要手动写 `&wg`，因为闭包捕获的是同一个变量，`Done()` 和 `Wait()` 操作的还是同一个 `WaitGroup`。但如果把 `wg` 当函数参数传进去，就不能按值传，否则会复制出一份新的内部同步状态，变成“你减你的，我等我的”。所以需要传指针，比如 `func work(wg *sync.WaitGroup)`，保证所有 goroutine 操作的是同一个等待对象。
+
 一句话记忆：**循环里也是一样：每启动一个 goroutine 前，先把账记到 WaitGroup 上。**
 
 ---
 
-## 28. WaitGroup 使用后不要复制
+### 3. 传参与复制
+
+#### 3.1 WaitGroup 使用后不要复制
 
 先判断输出：
 
@@ -1391,9 +1436,9 @@ func work(wg *sync.WaitGroup) {
 
 ---
 
-## 29. 总结口诀
+## 四、总结口诀
 
-### slice
+### Slice
 
 | 易错点 | 关键结论 |
 |---|---|
@@ -1418,7 +1463,7 @@ slice = ptr + len + cap。
 看输出题时，先判断 slice header 有没有变，再判断底层数组有没有共享。
 ```
 
-### map
+### Map
 
 | 易错点 | 关键结论 |
 |---|---|
