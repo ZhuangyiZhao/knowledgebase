@@ -229,3 +229,15 @@ async function main() {
 Promise/Future 是把异步结果封装成“未来的值”，让流程从嵌套变成链式扁平；async/await 是在这个基础上，让异步代码写起来像普通同步代码。
 
 6 LCEL
+
+
+与Agent Tool Calling的本质区别
+RAG: 把知识在推理之前进行嵌入。【类似考试前的辅导题】，重点在“知道更多再回答”。
+Tool Calling: 在决策时候进行一些推动。【拿着大模型的指示翻一下书】，重点在“做什么来解决”
+
+
+RAG流程
+加载文档 -> 文档分块 - > 文档向量化 - > 文档存储 - > 用户提问 - > 问题向量化 - > 检索相关文档 - > 生成回答
+
+PPChatOCR是OCR+RAG能力的一个组合
+https://www.doubao.com/thread/w4aba3b016e53bcd5
